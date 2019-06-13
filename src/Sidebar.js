@@ -13,7 +13,7 @@ const maxHeight = {
 
 class Sidebar extends Component{
     render() {
-        const {ChangePage} = this.props;
+        const {changePage} = this.props;
         return (
             <div style={maxHeight}>
                 <aside className="main-sidebar">
@@ -49,7 +49,7 @@ class Sidebar extends Component{
                                 </a>
                             </li>
                             <li className="treeview">
-                                <a href="#" onClick={ChangePage("StudentProfileMenu")}>
+                                <a href="#" onClick={() => {changePage(1)}}>
                                     <i className="fa fa-files-o"></i>
                                     <span>Student Profile Menu</span>
                                 </a>

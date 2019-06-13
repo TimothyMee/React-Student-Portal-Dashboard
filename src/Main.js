@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
 
-const propTypes = {
+/*const propTypes = {
   submenu: PropTypes.arrayOf(PropTypes.shape({
       icon : PropTypes.string,
       Link : PropTypes.string,
       title : PropTypes.string.isRequired
   }))
-};
+};*/
 
 const centerStyle = {
     justifyContent: 'center'
@@ -38,6 +38,7 @@ const mainDiv = {
 
 class Main extends Component{
     render() {
+        const {pageName, submenu} = this.props;
         return (
             <div className="container" style={mainDiv}>
                 <div className={"col-md-12"} style={centerStyle}>
@@ -46,17 +47,23 @@ class Main extends Component{
                     <div className={"col-md-12"}>&nbsp;</div>
                     <div className={"col-md-9 col-md-offset-1"} style={bgColorWhite}>
                         <br/>
-                        <div className = {"col-lg-3 col-xs-6"}>
-                            <div className={"small-box bg-aqua"}>
-                                <div className="inner">
-                                    <p style={fontSize}>Registration</p>
-                                </div>
-                                <div className={"icon"}>
-                                    <i className={"fa ion-person"}></i>
-                                </div>
-                                <a href="#" className={"small-box-footer"}> Open </a>
-                            </div>
-                        </div>
+                        {
+                            submenu.map(item => {
+                                return (
+                                    <div className = {"col-lg-3 col-xs-6"}>
+                                        <div className={"small-box bg-aqua"}>
+                                            <div className="inner">
+                                                <p style={fontSize}>{item.title}</p>
+                                            </div>
+                                            <div className={"icon"}>
+                                                <i className={"fa ion-person"}></i>
+                                            </div>
+                                            <a href="#" className={"small-box-footer"}> Open </a>
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -64,5 +71,5 @@ class Main extends Component{
     }
 }
 
-Main.propTypes = propTypes;
+// Main.propTypes = propTypes;
 export default Main;

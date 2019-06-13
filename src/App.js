@@ -14,16 +14,18 @@ const maxHeight = {
   height: '100%',
   minHeight: '100%',
 };
+
+let submenu = [{icon: "", Link: "", title: "Dashboard"}];
 class App extends Component{
   constructor(props){
     super(props);
 
     this.state = {
       pageName: 'dashboard',
-      icon:"",
-      Link:"",
-      title:"Dashboard"
+      submenu: submenu
     };
+
+    this.fetchData = this.fetchData.bind(this);
   }
 
   // changePage(pageName){
@@ -34,15 +36,15 @@ class App extends Component{
   // }
 
   fetchData(pageName){
-      axios.get('http://localhost:19250/home/'+pageName)
+      var self = this;
+      axios.get('http://localhost:19250/api/StudentMenu/'+pageName)
           .then(res => {
             console.log(res);
-            this.setState({
+            self.setState({
               pageName:pageName,
-              icon : res.icon,
-              Link : res.Line,
-              title : res.title
+              submenu : res.data
             });
+            console.log(self);
           })
           .catch(err => {
             console.log(err);
@@ -55,15 +57,13 @@ class App extends Component{
       <div className={"container col-md-12 row"}>
         <div className={"container col-md-2"}>
           <Sidebar
-            ChangePage ={this.fetchData}
+            changePage ={this.fetchData}
           />
         </div>
         <div className={"col-md-9"}>
           <Main
-              icon = {this.state.icon}
-              Link = {this.state.Link}
-              title = {this.state.title}
-            pageName = {this.state.pageName}
+              pageName={this.state.pageName}
+              submenu={this.state.submenu}
           />
         </div>
       </div>
