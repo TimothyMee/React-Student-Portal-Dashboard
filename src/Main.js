@@ -15,7 +15,7 @@ const centerStyle = {
     justifyContent: 'center'
 };
 const fontSize = {
-    fontSize: '25px'
+    fontSize: '15px'
 };
 const border = {
     border: '2px solid red'
@@ -34,6 +34,9 @@ const mainDiv = {
     height:'100%',
     backgroundColor: '#ecf0f5'
 };
+const smallBoxes = {
+    minHeight:'100px'
+}
 
 
 class Main extends Component{
@@ -51,12 +54,12 @@ class Main extends Component{
                             submenu.map(item => {
                                 return (
                                     <div className = {"col-lg-3 col-xs-6"}>
-                                        <div className={"small-box bg-aqua"}>
+                                        <div className={"small-box bg-aqua"} style={smallBoxes}>
                                             <div className="inner">
                                                 <p style={fontSize}>{item.title}</p>
                                             </div>
                                             <div className={"icon"}>
-                                                <i className={"fa ion-person"}></i>
+                                                <i className={item.icon}></i>
                                             </div>
                                             <a href="#" className={"small-box-footer"}> Open </a>
                                         </div>
