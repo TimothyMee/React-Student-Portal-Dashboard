@@ -15,7 +15,7 @@ const maxHeight = {
   minHeight: '100%',
 };
 
-let submenu = [{icon: "", Link: "", title: "Dashboard"}];
+let submenu = [{icon: "fa ion-home", Link: "", title: "Dashboard"}];
 class App extends Component{
   constructor(props){
     super(props);
@@ -37,18 +37,27 @@ class App extends Component{
 
   fetchData(pageName){
       var self = this;
-      axios.get('http://localhost:19250/api/StudentMenu/'+pageName)
-          .then(res => {
-            console.log(res);
-            self.setState({
-              pageName:pageName,
-              submenu : res.data
-            });
-            console.log(self);
-          })
-          .catch(err => {
-            console.log(err);
+
+      if(pageName == 0){
+          self.setState({
+              pageName : pageName,
+              submenu : submenu
           });
+      }
+      else{
+          axios.get('http://localhost:19250/api/StudentMenu/'+pageName)
+              .then(res => {
+                  console.log(res);
+                  self.setState({
+                      pageName:pageName,
+                      submenu : res.data
+                  });
+                  console.log(self);
+              })
+              .catch(err => {
+                  console.log(err);
+              });
+      }
   }
 
   render() {

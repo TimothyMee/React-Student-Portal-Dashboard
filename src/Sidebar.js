@@ -43,7 +43,7 @@ class Sidebar extends Component{
                         <ul className="sidebar-menu">
                             <li className="header">MAIN NAVIGATION</li>
                             <li className="active treeview">
-                                <a href="#">
+                                <a href="#" onClick={() => {changePage(0)}}>
                                     <i className="fa fa-dashboard"></i>
                                     <span>Dashboard</span>
                                 </a>
@@ -51,27 +51,27 @@ class Sidebar extends Component{
                             <li className="treeview">
                                 <a href="#" onClick={() => {changePage(1)}}>
                                     <i className="fa fa-files-o"></i>
-                                    <span>Student Profile Menu</span>
+                                    <span>Courses</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i className="fa fa-th"></i>
-                                    <span>Widgets</span>
+                                <a href="#" onClick={() => {changePage(2)}}>
+                                    <i className="fa fa-piggy-bank"></i>
+                                    <span>Bank Details</span>
                                 </a>
                             </li>
                             <li className="treeview">
-                                <a href="#">
-                                    <i className="fa fa-laptop"></i>
-                                    <span>Charts</span>
+                                <a href="#" onClick={() => {changePage(3)}}>
+                                    <i className="fa fa-money-bill"></i>
+                                    <span>Fees</span>
                                 </a>
                             </li>
                             <li className="treeview">
-                                <a href="#">
-                                    <i className="fa fa-edit"></i> <span>Forms</span>
+                                <a href="#" onClick={() => {changePage(4)}}>
+                                    <i className="fa fa-school"></i> <span>Academic</span>
                                 </a>
                             </li>
-                            <li className="treeview">
+                            {/*<li className="treeview">
                                 <a href="#">
                                     <i className="fa fa-table"></i> <span>Tables</span>
                                 </a>
@@ -80,7 +80,7 @@ class Sidebar extends Component{
                                 <a href="#">
                                     <i className="fa fa-envelope"></i> <span>Mailbox</span>
                                 </a>
-                            </li>
+                            </li>*/}
                         </ul>
                         <br/><br/><br/><br/><br/>
                     </section>
