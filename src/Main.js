@@ -53,7 +53,7 @@ class Main extends Component{
                         {
                             submenu.map(item => {
                                 return (
-                                    <div className = {"col-lg-3 col-xs-6"}>
+                                    <div className = {"col-lg-3 col-xs-6"} key={item.title}>
                                         <div className={"small-box bg-aqua"} style={smallBoxes}>
                                             <div className="inner">
                                                 <p style={fontSize}>{item.title}</p>

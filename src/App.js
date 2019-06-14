@@ -6,6 +6,11 @@ import logo from './logo.svg';
 import Sidebar from './Sidebar'
 import Main from './Main'
 import axios from 'axios'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from "react-router-dom";
 
 
 const maxHeight = {
